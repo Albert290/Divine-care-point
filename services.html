@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Care Point - Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1a3d5c;
+            --secondary-blue: #2a9d8f;
+            --accent-teal: #e6f1f7;
+            --emergency-red: #e76f51;
+            --text-dark: #333;
+            --text-light: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            background: #f9f9f9;
+        }
+
+        /* Header Styles */
+        .header {
+            background: var(--primary-blue);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-blue);
+        }
+
+        /* Services Page Specific Styles */
+        .services-page {
+            padding: 8rem 2rem 4rem;
+        }
+
+        .page-heading {
+            text-align: center;
+            color: var(--primary-blue);
+            margin-bottom: 3rem;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--secondary-blue);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .service-cta {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--secondary-blue);
+            color: white;
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--secondary-blue);
+            color: var(--secondary-blue);
+        }
+
+        .emergency-banner {
+            background: var(--emergency-red);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            border-radius: 10px;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: var(--primary-blue);
+            color: var(--text-light);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .services-page {
+                padding: 6rem 1rem 2rem;
+            }
+
+            .service-cta {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">Divine Care Point</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services" class="active">Services</a>
+                <a href="#doctors">Doctors</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <button class="btn btn-secondary" onclick="showPortal('patient')">Patient Portal</button>
+                <button class="btn btn-primary" onclick="showPortal('doctor')">Doctor Portal</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Services Content -->
+    <main class="services-page">
+        <h1 class="page-heading">Our Medical Services</h1>
+        
+        <div class="services-container">
+            <!-- Emergency Care -->
+            <div class="service-card">
+                <i class="service-icon fas fa-ambulance"></i>
+                <h3>24/7 Emergency Care</h3>
+                <p>Immediate medical attention with our state-of-the-art emergency department.</p>
+                <div class="service-cta">
+                    <a href="#emergency" class="btn btn-primary">Emergency Info</a>
+                    <a href="#locations" class="btn btn-secondary">Our Locations</a>
+                </div>
+            </div>
+
+            <!-- Surgical Services -->
+            <div class="service-card">
+                <i class="service-icon fas fa-procedures"></i>
+                <h3>Advanced Surgery</h3>
+                <p>Minimally invasive and robotic-assisted surgical procedures.</p>
+                <div class="service-cta">
+                    <a href="#surgeons" class="btn btn-primary">Meet Surgeons</a>
+                    <a href="#appointment" class="btn btn-secondary">Book Consultation</a>
+                </div>
+            </div>
+
+            <!-- Maternity Care -->
+            <div class="service-card">
+                <i class="service-icon fas fa-baby-carriage"></i>
+                <h3>Maternity Care</h3>
+                <p>Complete prenatal, delivery, and postnatal care services.</p>
+                <div class="service-cta">
+                    <a href="#maternity" class="btn btn-primary">Tour Facilities</a>
+                    <a href="#classes" class="btn btn-secondary">Parent Classes</a>
+                </div>
+            </div>
+
+            <!-- Cardiac Care -->
+            <div class="service-card">
+                <i class="service-icon fas fa-heartbeat"></i>
+                <h3>Cardiac Care</h3>
+                <p>Comprehensive heart health services and rehabilitation.</p>
+                <div class="service-cta">
+                    <a href="#cardiology" class="btn btn-primary">Heart Screening</a>
+                    <a href="#programs" class="btn btn-secondary">Wellness Programs</a>
+                </div>
+            </div>
+
+            <!-- Pediatrics -->
+            <div class="service-card">
+                <i class="service-icon fas fa-baby"></i>
+                <h3>Pediatric Care</h3>
+                <p>Specialized medical care for children of all ages.</p>
+                <div class="service-cta">
+                    <a href="#pediatrics" class="btn btn-primary">Meet Pediatricians</a>
+                    <a href="#resources" class="btn btn-secondary">Parent Resources</a>
+                </div>
+            </div>
+
+            <!-- Diagnostics -->
+            <div class="service-card">
+                <i class="service-icon fas fa-microscope"></i>
+                <h3>Advanced Diagnostics</h3>
+                <p>State-of-the-art imaging and laboratory services.</p>
+                <div class="service-cta">
+                    <a href="#tests" class="btn btn-primary">View Tests</a>
+                    <a href="#results" class="btn btn-secondary">Get Results</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Emergency Banner -->
+        <div class="emergency-banner">
+            <h2>Need Immediate Assistance?</h2>
+            <p>Our emergency team is available 24/7</p>
+            <div class="service-cta">
+                <a href="tel:1234567890" class="btn btn-primary">
+                    <i class="fas fa-phone"></i> Call Now: 123-456-7890
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2023 Divine Care Point. All rights reserved.</p>
+        <p>123 Health Street, Wellness City | Emergency: 123-456-7890</p>
+    </footer>
+
+    <script>
+        function showPortal(type) {
+            // Add portal modal logic here
+            alert(type + " portal coming soon!");
+        }
+
+        // Mobile menu toggle
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                document.querySelector('.nav-links').style.display = 'flex';
+            } else {
+                document.querySelector('.nav-links').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
