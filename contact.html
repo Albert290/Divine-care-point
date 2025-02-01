@@ -4,17 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css"> <!-- Link to external CSS file -->
 </head>
 <body>
+     <!-- Header -->
+     <header class="header">
+        <nav class="nav-container">
+            <div class="logo">Care Point Devine Hospital</div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="doctors.html">Doctors</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <button class="portal-btn" onclick="showPortal('patient')">Patient Portal</button>
+                <button class="portal-btn" onclick="showPortal('doctor')">Doctor Portal</button>
+            </div>
+            <i class="fas fa-bars menu-icon" id="menuIcon" onclick="toggleMenu()"></i>
+        </nav>
+    </header>
     <div class="contact-container">
         <h1>Contact Us</h1>
         <p class="tagline">We're here to help. Reach out to us anytime!</p>
         <div class="contact-info">
             <div class="contact-details">
                 <h2>Get in Touch</h2>
-                <p><strong>Address:</strong> 123 Health St, Wellness City</p>
-                <p><strong>Phone:</strong> +123 456 7890</p>
+                <p><strong>Address:</strong>Next to Ikweta Country Inn</p>
+                <p><strong>Phone:</strong> 0720202000</p>
                 <p><strong>Email:</strong> info@healthcarehospital.com</p>
             </div>
             <div class="contact-form">
@@ -37,5 +54,48 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // JavaScript to toggle the menu
+        function toggleMenu() {
+            const navLinks = document.getElementById("navLinks");
+            navLinks.classList.toggle("active");
+        }
+    </script>
+
+    <script>
+        function showPortal(type) {
+            const modal = document.getElementById(`${type}Portal`);
+            modal.style.display = 'block';
+        }
+
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenu = () => {
+            const nav = document.querySelector('.nav-links');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        }
+        
+        // Initialize Google Map
+        function initMap() {
+            // Add your map initialization code here
+        }
+        </script>
 </body>
 </html>

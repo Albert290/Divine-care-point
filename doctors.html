@@ -4,9 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css"> <!-- Link to external CSS file -->
 </head>
 <body>
+     <!-- Header -->
+     <header class="header">
+        <nav class="nav-container">
+            <div class="logo">Care Point Devine Hospital</div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="doctors.html">Doctors</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <button class="portal-btn" onclick="showPortal('patient')">Patient Portal</button>
+                <button class="portal-btn" onclick="showPortal('doctor')">Doctor Portal</button>
+            </div>
+            <i class="fas fa-bars menu-icon" id="menuIcon" onclick="toggleMenu()"></i>
+        </nav>
+    </header>
+    <section class="docprofile">
     <div class="doctor-profile">
         <div class="doctor-image">
             <img src="images/doc 1.jpg" alt="Dr. John Doe">
@@ -45,5 +63,109 @@
             <button class="appointment-btn">Book Appointment</button>
         </div>
     </div>
+    <div class="doctor-profile">
+        <div class="doctor-image">
+            <img src="images/doc2.jpg" alt="Dr. John Smith">
+        </div>
+        <div class="doctor-details">
+            <h1>Dr. John Smith</h1>
+            <p class="specialization">Cardiologist</p>
+            <p class="bio">
+                Dr. John Doe is a highly experienced cardiologist with over 15 years of practice.
+                He specializes in heart-related diseases and has a passion for patient care.
+            </p>
+            <div class="contact-info">
+                <p><strong>Email:</strong> john.doe@hospital.com</p>
+                <p><strong>Phone:</strong> +123 456 7890</p>
+                <p><strong>Address:</strong> 123 Health St, Wellness City</p>
+            </div>
+            <button class="appointment-btn">Book Appointment</button>
+        </div>
+    </div>
+    
+
+    <div class="doctor-profile">
+        <div class="doctor-image">
+            <img src="images/doc3.jpg" alt="Dr. Mary Johnson">
+        </div>
+        <div class="doctor-details">
+            <h1>Dr. Mary Johnson</h1>
+            <p class="specialization">Dentist</p>
+            <p class="bio">
+                Dr. Mary Johnson is a highly experienced cardiologist with over 15 years of practice.
+                She specializes in heart-related diseases and has a passion for patient care.
+            </p>
+            <div class="contact-info">
+                <p><strong>Email:</strong> johnson@hospital.com</p>
+                <p><strong>Phone:</strong> +123 456 7890</p>
+                <p><strong>Address:</strong> 123 Health St, Wellness City</p>
+            </div>
+            <button class="appointment-btn">Book Appointment</button>
+        </div>
+    </div>
+    <div class="doctor-profile">
+        <div class="doctor-image">
+            <img src="images/doc4.jpg" alt="Dr. James Muthee">
+        </div>
+        <div class="doctor-details">
+            <h1>Dr. James Muthee</h1>
+            <p class="specialization">Head Nurse</p>
+            <p class="bio">
+                Dr. James Muthee is a highly experienced cardiologist with over 15 years of practice.
+                He specializes in heart-related diseases and has a passion for patient care.
+            </p>
+            <div class="contact-info">
+                <p><strong>Email:</strong> james@hospital.com</p>
+                <p><strong>Phone:</strong> +123 456 7890</p>
+                <p><strong>Address:</strong> 123 Health St, Wellness City</p>
+            </div>
+            <button class="appointment-btn">Book Appointment</button>
+        </div>
+    </div>
+
+</section>
+
+<script>
+    // JavaScript to toggle the menu
+    function toggleMenu() {
+        const navLinks = document.getElementById("navLinks");
+        navLinks.classList.toggle("active");
+    }
+</script>
+
+<script>
+    function showPortal(type) {
+        const modal = document.getElementById(`${type}Portal`);
+        modal.style.display = 'block';
+    }
+
+    window.onclick = function(event) {
+        if (event.target.className === 'modal') {
+            event.target.style.display = 'none';
+        }
+    }
+</script>
+<script>
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+    
+    // Mobile menu toggle
+    const mobileMenu = () => {
+        const nav = document.querySelector('.nav-links');
+        nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    }
+    
+    // Initialize Google Map
+    function initMap() {
+        // Add your map initialization code here
+    }
+    </script>
 </body>
 </html>

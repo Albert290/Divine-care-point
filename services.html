@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Divine Care Point - Services</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -169,19 +170,20 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
+     <!-- Header -->
+     <header class="header">
         <nav class="nav-container">
-            <div class="logo">Divine Care Point</div>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#services" class="active">Services</a>
-                <a href="#doctors">Doctors</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-                <button class="btn btn-secondary" onclick="showPortal('patient')">Patient Portal</button>
-                <button class="btn btn-primary" onclick="showPortal('doctor')">Doctor Portal</button>
+            <div class="logo">Care Point Devine Hospital</div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="doctors.html">Doctors</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <button class="portal-btn" onclick="showPortal('patient')">Patient Portal</button>
+                <button class="portal-btn" onclick="showPortal('doctor')">Doctor Portal</button>
             </div>
+            <i class="fas fa-bars menu-icon" id="menuIcon" onclick="toggleMenu()"></i>
         </nav>
     </header>
 
@@ -276,19 +278,46 @@
     </footer>
 
     <script>
+        // JavaScript to toggle the menu
+        function toggleMenu() {
+            const navLinks = document.getElementById("navLinks");
+            navLinks.classList.toggle("active");
+        }
+    </script>
+
+    <script>
         function showPortal(type) {
-            // Add portal modal logic here
-            alert(type + " portal coming soon!");
+            const modal = document.getElementById(`${type}Portal`);
+            modal.style.display = 'block';
         }
 
-        // Mobile menu toggle
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                document.querySelector('.nav-links').style.display = 'flex';
-            } else {
-                document.querySelector('.nav-links').style.display = 'none';
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = 'none';
             }
-        });
+        }
     </script>
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenu = () => {
+            const nav = document.querySelector('.nav-links');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        }
+        
+        // Initialize Google Map
+        function initMap() {
+            // Add your map initialization code here
+        }
+        </script>
 </body>
 </html>
